@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'criminal/styles/style.css' %}">
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+    <script src="https://kit.fontawesome.com/6b6baf6b2c.js" crossorigin="anonymous"></script>
+    <script defer src="{% static 'criminal/face-api.min.js'%}"></script>
+    <title>Criminal-Detector</title>
+</head>
+<body class="bg-info">
+    <nav class="navbar navbar-expand-sm bg-transparent bg-gradient navbar-right">
+
+    <div class="container text-right justify-content-end">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="navbar-brand nav-link" href="{% url 'login'%}">
+              <i class="fa-regular fa-circle-user fa-2x align-middle"></i>
+           </a>
+          </li>
+        </ul>
+    </div>
+    </nav>
+
+    <div class="position-absolute mid-center">
+    <video id="webcam" autoplay playsinline width="640" height="480"></video>
+    <canvas id="canvas" class="d-none mid-center"></canvas>
+    <audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
+    <script type="text/javascript" src="{% static 'criminal/main.js' %}"></script>
+
+
+    <!-- <video id="video" width="720" height="560" autoplay muted></video> -->
+    
+    <div>
+        <a href="{% url 'home' %}" class="btn btn-dark btn-lg active " role="button" aria-pressed="true">Close Camera</a>
+      </div>
+    </div>
+
+    
+    <!-- <br/><form>
+      <input type=button value="Configure..." onClick="webcam.configure()">
+      &nbsp;&nbsp;
+      <input type=button value="Take Snapshot" onClick="take_snapshot()">
+    </form>
+
+    </td><td width=50>&nbsp;</td><td valign=top>
+      <div id="upload_results" style="background-color:#eee;"></div>
+    </td></tr></table> -->
+
+</body>
+</html>
